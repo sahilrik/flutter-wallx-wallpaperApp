@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:wallpaperapp/controller/home_controller.dart';
 import 'package:wallpaperapp/view/utils/helpers/colors_helper.dart';
 import 'package:wallpaperapp/view/utils/helpers/style_helper.dart';
 import 'package:wallpaperapp/view/utils/shared/shared_grid_wiget.dart';
@@ -48,11 +50,26 @@ class HomeView extends StatelessWidget {
             ],
           ),
         ),
-        body: const TabBarView(physics: BouncingScrollPhysics(), children: [
-          SharedGridWiget(),
-          SharedGridWiget(),
-          SharedGridWiget(),
-        ]),
+        body: TabBarView(
+          physics: const BouncingScrollPhysics(),
+          children: [
+            GetBuilder<HomeController>(
+                init: HomeController(),
+                builder: (controller) {
+                  return controller.state
+                      ? const Center(child: CircularProgressIndicator())
+                      : SharedGridWiget(
+                          wallpapers: controller.todaysList,
+                        );
+                }),
+            const SharedGridWiget(
+              wallpapers: [],
+            ),
+            const SharedGridWiget(
+              wallpapers: [],
+            ),
+          ],
+        ),
       ),
     );
   }
