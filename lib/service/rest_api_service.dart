@@ -17,8 +17,8 @@ class RestApiService {
     return parseData;
   }
 
-  Future<List<Wallpaper>> convertJsonToObject(int pagenumber) async {
-    List<dynamic> list = await getJsonDataFromApi(api + '&$pagenumber');
+  Future<List<Wallpaper>> convertJsonToObject(String url) async {
+    List<dynamic> list = await getJsonDataFromApi(url);
     List<Wallpaper> wallpapers = [];
     for (var wallpaper in list) {
       wallpapers.add(Wallpaper.fromJson(wallpaper));
