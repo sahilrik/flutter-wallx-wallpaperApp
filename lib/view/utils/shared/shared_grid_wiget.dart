@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:wallpaperapp/model/wallpaper.dart';
+import 'package:wallpaperapp/view/screens/wallpaper_view.dart';
 import 'package:wallpaperapp/view/utils/helpers/colors_helper.dart';
 
 class SharedGridWiget extends StatelessWidget {
@@ -24,16 +26,28 @@ class SharedGridWiget extends StatelessWidget {
           childAspectRatio: 2 / 2.7,
         ),
         itemCount: 10,
-        itemBuilder: (context, index) => ClipRRect(
-          borderRadius: BorderRadius.circular(15),
-          child: Container(
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(15),
-              color: pinkcolor,
-            ),
-            child: Image.network(
-              wallpapers[index].urls.small,
-              fit: BoxFit.cover,
+        itemBuilder: (context, index) => GestureDetector(
+          onTap: () {
+            Get.to(
+              WallpaperView(
+                wallpaper: wallpapers[index],
+              ),
+            );
+          },
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(15),
+            child: Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(15),
+                color: pinkcolor,
+              ),
+              child: Hero(
+                tag: wallpapers[index].urls.regular,
+                child: Image.network(
+                  wallpapers[index].urls.regular,
+                  fit: BoxFit.cover,
+                ),
+              ),
             ),
           ),
         ),
