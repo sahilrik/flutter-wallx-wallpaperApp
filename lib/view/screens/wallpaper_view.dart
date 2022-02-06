@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 
 import 'package:wallpaperapp/model/wallpaper.dart';
 import 'package:wallpaperapp/view/utils/helpers/colors_helper.dart';
+import 'package:wallpaperapp/view/utils/helpers/style_helper.dart';
 
 class WallpaperView extends StatelessWidget {
   final Wallpaper wallpaper;
@@ -42,6 +43,7 @@ class WallpaperView extends StatelessWidget {
                   iconData: Icons.search_off_outlined,
                 ),
                 Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     CircleAvatar(
                       backgroundColor: pinkcolor,
@@ -49,6 +51,34 @@ class WallpaperView extends StatelessWidget {
                           color: whitecolor,
                           onpressed: () {},
                           iconData: Icons.file_download_outlined),
+                    ),
+                    GestureDetector(
+                      onTap: () {
+                        showBottomSheet(
+                            context: context,
+                            builder: (context) => Container());
+                      },
+                      child: Container(
+                        padding: const EdgeInsets.symmetric(
+                          vertical: 15,
+                          horizontal: 80.0,
+                        ),
+                        child: const Text(
+                          'set as',
+                          style: buttons,
+                        ),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(50),
+                          color: pinkcolor,
+                        ),
+                      ),
+                    ),
+                    CircleAvatar(
+                      backgroundColor: whitecolor,
+                      child: WallpaperViewButton(
+                          color: pinkcolor,
+                          onpressed: () {},
+                          iconData: Icons.favorite_border),
                     )
                   ],
                 )
