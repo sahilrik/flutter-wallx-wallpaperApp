@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:wallpaperapp/view/screens/homeview.dart';
 
-void main() {
+Future<void> main() async {
+  await Hive.initFlutter();
+  Hive.openBox<String>('downloadBox');
   runApp(const MyApp());
 }
 
