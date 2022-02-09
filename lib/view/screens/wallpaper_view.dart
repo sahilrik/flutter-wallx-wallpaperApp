@@ -5,7 +5,7 @@ import 'package:wallpaperapp/controller/wallpaper_controller.dart';
 import 'package:wallpaperapp/model/wallpaper.dart';
 import 'package:wallpaperapp/view/utils/helpers/colors_helper.dart';
 
-import 'package:wallpaperapp/view/wigets/wallpaper.dart';
+import 'package:wallpaperapp/view/wigets/wallpaper_wigets.dart';
 
 class WallpaperView extends StatelessWidget {
   final Wallpaper wallpaper;
@@ -60,7 +60,10 @@ class WallpaperView extends StatelessWidget {
                               },
                               iconData: Icons.file_download_outlined),
                         ),
-                        const SetButton(),
+                        SetButton(
+                          wallpaper: wallpaper,
+                          wallpaperController: controller,
+                        ),
                         CircleAvatar(
                           backgroundColor: whitecolor,
                           child: WallpaperViewButton(
