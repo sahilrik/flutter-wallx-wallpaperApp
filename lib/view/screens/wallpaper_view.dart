@@ -39,11 +39,11 @@ class WallpaperView extends StatelessWidget {
                   },
                   iconData: Icons.arrow_back_ios,
                 ),
-                WallpaperViewButton(
-                  color: whitecolor,
-                  onpressed: () {},
-                  iconData: Icons.search_off_outlined,
-                ),
+                // WallpaperViewButton(
+                //   color: whitecolor,
+                //   onpressed: () {},
+                //   iconData: Icons.search_off_outlined,
+                // ),
                 GetBuilder<WallpaperController>(
                   init: WallpaperController(),
                   builder: (controller) {
