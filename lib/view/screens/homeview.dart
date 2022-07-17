@@ -5,8 +5,11 @@ import 'package:wallpaperapp/view/utils/helpers/colors_helper.dart';
 import 'package:wallpaperapp/view/utils/helpers/style_helper.dart';
 import 'package:wallpaperapp/view/utils/shared/shared_grid_wiget.dart';
 
+import 'package:anim_search_bar/anim_search_bar.dart';
+
 class HomeView extends StatelessWidget {
-  const HomeView({Key? key}) : super(key: key);
+  HomeView({Key? key}) : super(key: key);
+  TextEditingController textController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -21,14 +24,30 @@ class HomeView extends StatelessWidget {
           ),
           centerTitle: true,
           elevation: 0,
+          // ignore: prefer_const_literals_to_create_immutables
           actions: [
-            IconButton(
-              onPressed: () {},
-              icon: const Icon(
-                Icons.search,
-                color: blackgreyColor,
-              ),
-            ),
+            AnimSearchBar(
+              width: 400,
+              textController: textController,
+              onSuffixTap: () {
+                // setState(() {
+                //   textController.clear();
+                // });
+              },
+              color: const Color(0xffFE2E4E),
+              helpText: "Search Text...",
+              autoFocus: true,
+              closeSearchOnSuffixTap: true,
+              animationDurationInMilli: 300,
+              rtl: true,
+            )
+            // IconButton(
+            //   onPressed: () {},
+            //   icon: const Icon(
+            //     Icons.search,
+            //     color: blackgreyColor,
+            //   ),
+            // ),
           ],
           bottom: const TabBar(
             indicatorColor: Colors.transparent,

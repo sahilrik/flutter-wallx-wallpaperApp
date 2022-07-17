@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:wallpaperapp/view/screens/homeview.dart';
+import 'package:animated_splash_screen/animated_splash_screen.dart';
 
 Future<void> main() async {
   await Hive.initFlutter();
@@ -20,7 +21,14 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const HomeView(),
+      home: AnimatedSplashScreen(
+        splash: Image.asset('assets/logo wallx.png'),
+        splashIconSize: 175,
+        nextScreen: HomeView(),
+      ),
     );
   }
 }
+
+
+// HomeView()

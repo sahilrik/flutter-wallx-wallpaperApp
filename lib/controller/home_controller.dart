@@ -30,6 +30,9 @@ class HomeController extends BaseController {
   List<Wallpaper> todaysList = [];
   List<Wallpaper> popularList = [];
   List<Wallpaper> oldiesList = [];
+  var todaylistcount = 1;
+  var popularlistcount = 1;
+  var oldlistcount = 1;
 
   Future<void> getListOfToday() async {
     todaysList = await _restApiService.convertJsonToObject(api + '&${1}');
