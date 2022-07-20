@@ -26,28 +26,14 @@ class HomeView extends StatelessWidget {
           elevation: 0,
           // ignore: prefer_const_literals_to_create_immutables
           actions: [
-            AnimSearchBar(
-              width: 400,
-              textController: textController,
-              onSuffixTap: () {
-                // setState(() {
-                //   textController.clear();
-                // });
-              },
-              color: const Color(0xffFE2E4E),
-              helpText: "Search Text...",
-              autoFocus: true,
-              closeSearchOnSuffixTap: true,
-              animationDurationInMilli: 300,
-              rtl: true,
-            )
-            // IconButton(
-            //   onPressed: () {},
-            //   icon: const Icon(
-            //     Icons.search,
-            //     color: blackgreyColor,
-            //   ),
-            // ),
+            IconButton(
+              onPressed: () {},
+              icon: const Icon(
+                Icons
+                    .search, //coonvert the search icon to animated search bar which expands and collapseson tap
+                color: blackgreyColor,
+              ),
+            ),
           ],
           bottom: const TabBar(
             indicatorColor: Colors.transparent,

@@ -39,38 +39,18 @@ class WallpaperView extends StatelessWidget {
                   },
                   iconData: Icons.arrow_back_ios,
                 ),
-                // WallpaperViewButton(
-                //   color: whitecolor,
-                //   onpressed: () {},
-                //   iconData: Icons.search_off_outlined,
-                // ),
                 GetBuilder<WallpaperController>(
                   init: WallpaperController(),
                   builder: (controller) {
                     return Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        CircleAvatar(
-                          backgroundColor: pinkcolor,
-                          child: WallpaperViewButton(
-                              color: whitecolor,
-                              onpressed: () {
-                                controller.downloadTheWallpaper(
-                                    wallpaper.urls.regular);
-                              },
-                              iconData: Icons.file_download_outlined),
-                        ),
+                        //add the download button here
                         SetButton(
                           wallpaper: wallpaper,
                           wallpaperController: controller,
                         ),
-                        CircleAvatar(
-                          backgroundColor: whitecolor,
-                          child: WallpaperViewButton(
-                              color: pinkcolor,
-                              onpressed: () {},
-                              iconData: Icons.favorite_border),
-                        )
+                        //add the like button here
                       ],
                     );
                   },

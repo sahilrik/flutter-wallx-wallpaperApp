@@ -4,10 +4,6 @@ import 'package:http/http.dart' as http;
 import 'package:wallpaperapp/model/wallpaper.dart';
 import 'package:wallpaperapp/view/utils/constants/constant.dart';
 
-// import 'dart:convert';
-
-// import 'package:http/http.dart' as http;
-
 class RestApiService {
   Future<List<dynamic>> getJsonDataFromApi(String url) async {
     Uri uri = Uri.parse(url);
@@ -25,14 +21,4 @@ class RestApiService {
     }
     return wallpapers;
   }
-
-  // Future<List<Wallpaper>> convertJsonToObject(String pagenumber) async {
-  //   List<dynamic> list = await getJsonDataFromApi(api + "&$pagenumber");
-  //   List<Wallpaper> wallpapaers = [];
-  //   for (var wallpaper in list) {
-  //     wallpapaers.add(Wallpaper.fromJson(wallpaper));
-  //     ;
-  //   }
-  //   return wallpapaers;
-  // }
 }

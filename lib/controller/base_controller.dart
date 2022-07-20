@@ -1,10 +1,5 @@
 import 'package:get/get.dart';
 
-// class BaseController extends GetxController {
-//   bool _state = false;
-//   bool get sate -> _state;
-// }
-
 class BaseController extends GetxController {
   bool _state = false;
   bool get state => _state;

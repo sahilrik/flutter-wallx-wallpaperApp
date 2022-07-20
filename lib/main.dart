@@ -21,14 +21,9 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: AnimatedSplashScreen(
-        splash: Image.asset('assets/logo wallx.png'),
-        splashIconSize: 175,
-        nextScreen: HomeView(),
-      ),
+      home: HomeView(), //write the code to add splash screen here
     );
   }
 }
-
 
 // HomeView()
